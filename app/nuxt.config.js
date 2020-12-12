@@ -9,6 +9,9 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    htmlAttrs: {
+      lang: 'ja',
+    },
     titleTemplate: '%s - vtodo',
     title: 'vtodo',
     meta: [
@@ -23,7 +26,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: '~/plugins/moment-filter', ssr: false }],
+  plugins: [
+    { src: '~/plugins/moment-filter', ssr: false },
+    { src: '~/plugins/dependencies', ssr: false },
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
