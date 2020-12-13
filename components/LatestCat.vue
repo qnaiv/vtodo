@@ -35,9 +35,16 @@ export default class LatestCat extends Vue {
       'https://api.thecatapi.com/v1/images/search'
     )
 
-    this.$CatRepository.addCat(
+    const cats = this.$CatRepository.getCats()
+    cats.unshift(
       new Cat(catResults.data[0].id, catResults.data[0].url, new Date())
     )
+    if (cats.length > this.$CatRepository.MaxCatSize) {
+      cats.pop()
+    }
+
+    this.$CatRepository.setCats(cats)
+
     this.latestCat = this.$CatRepository.getLatestCat()
   }
 }

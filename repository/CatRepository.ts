@@ -5,6 +5,8 @@ export class CatRepository {
     localStorage.cats = JSON.stringify([])
   }
 
+  MaxCatSize = 151
+
   addCat(cat: Cat) {
     if (localStorage.cats === undefined || localStorage.cats === null) {
       this.init()
@@ -16,7 +18,14 @@ export class CatRepository {
   }
 
   getCats(): Cat[] {
+    if (localStorage.cats === undefined || localStorage.cats === null) {
+      this.init()
+    }
     return JSON.parse(localStorage.cats)
+  }
+
+  setCats(cats: Cat[]) {
+    localStorage.cats = JSON.stringify(cats)
   }
 
   getLatestCat(): Cat {

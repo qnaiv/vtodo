@@ -1,7 +1,7 @@
 <template>
   <v-card flat class="todo-container">
     <v-list class="todo-list" subheader two-line>
-      <v-subheader>Todos</v-subheader>
+      <v-subheader>{{ title }}</v-subheader>
       <v-list-item
         v-for="todo in todos"
         :key="todo.id"
@@ -44,6 +44,9 @@ import { Todo } from '~/entities/Todo'
 
 @Component
 export default class TodoList extends Vue {
+  @Prop({ type: String, required: true })
+  title!: String
+
   @Prop({ type: Array, required: true })
   todos!: Array<Todo>
 

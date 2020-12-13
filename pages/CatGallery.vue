@@ -2,7 +2,7 @@
   <v-card class="pa-5">
     <v-row>
       <v-col>
-        <p>集めたねこの数: {{ cats.length }} 匹</p>
+        <p>集めたねこの数: {{ cats.length }} / 151 匹</p>
         <v-btn depressed color="primary" to="/"> ホームへ戻る </v-btn>
       </v-col>
     </v-row>
@@ -15,29 +15,13 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 import { CatRepository } from '~/repository/CatRepository'
 
-@Component({
-  components: {},
-})
+@Component
 export default class CatGallery extends Vue {
   $CatRepository!: CatRepository
   cats!: Array<any>
-
-  // catImages(): Array<any> {
-  //   console.log('catImages!!')
-
-  //   const test = this.cats.map((cat) => {
-  //     return {
-  //       thumb: cat.url,
-  //       src: cat.url,
-  //     }
-  //   })
-  //   console.log(test)
-
-  //   return test
-  // }
 
   created() {
     this.cats = this.$CatRepository.getCats().map((cat) => {
@@ -46,11 +30,6 @@ export default class CatGallery extends Vue {
         msrc: cat.url,
       }
     })
-    console.log(this.cats)
-  }
-
-  handleClose() {
-    console.log('aaa')
   }
 }
 </script>

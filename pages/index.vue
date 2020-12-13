@@ -2,6 +2,7 @@
   <v-row>
     <v-col cols="12" sm="12" md="4">
       <TodoList
+        :title="'Todos'"
         :todos="newTodos"
         :on-delete-all="clearNewTodos"
         :on-click-todo="done"
@@ -10,6 +11,7 @@
     </v-col>
     <v-col cols="12" sm="12" md="4">
       <TodoList
+        :title="'Done'"
         :todos="doneTodos"
         :on-delete-all="clearDoneTodos"
         :empty-message="'完了したTODOはありません。'"
@@ -17,7 +19,7 @@
     </v-col>
     <v-col cols="12" sm="12" md="4">
       <v-card flat class="cat-container">
-        <v-subheader>ねこ</v-subheader>
+        <v-subheader>Latest ねこ</v-subheader>
         <LatestCat ref="cat" class="px-5 pb-5" />
         <v-card-actions>
           <v-btn color="deep-purple lighten-2" text to="CatGallery">
@@ -78,7 +80,6 @@ export default class Index extends Vue {
       todo.isDone = true
       todo.doneAt = new Date()
       this.$TodoRepository.setTodos(this.todos)
-      console.log(this.$refs)
 
       this.$refs.cat.setRandomCatImage()
     }
