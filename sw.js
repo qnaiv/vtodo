@@ -1,4 +1,4 @@
-const options = {"workboxURL":"https://cdn.jsdelivr.net/npm/workbox-cdn@5.1.4/workbox/workbox-sw.js","importScripts":[],"config":{"debug":false},"clientsClaim":true,"skipWaiting":true,"cleanupOutdatedCaches":true,"offlineAnalytics":false,"preCaching":["/vtodo/?standalone=true","/vtodo/?standalone=true"],"runtimeCaching":[{"urlPattern":"/vtodo/_nuxt/","handler":"CacheFirst","method":"GET","strategyPlugins":[]},{"urlPattern":"/vtodo/","handler":"NetworkFirst","method":"GET","strategyPlugins":[]},{"urlPattern":"/vtodo/_nuxt/","handler":"CacheFirst","method":"GET","strategyPlugins":[]},{"urlPattern":"/vtodo/","handler":"NetworkFirst","method":"GET","strategyPlugins":[]}],"offlinePage":null,"pagesURLPattern":"/vtodo/","offlineStrategy":"NetworkFirst"}
+const options = {"workboxURL":"https://cdn.jsdelivr.net/npm/workbox-cdn@5.1.4/workbox/workbox-sw.js","importScripts":[],"config":{"debug":false},"cacheOptions":{"cacheId":"vtodo-prod","directoryIndex":"/","revision":"hLr6SyY3BV6d"},"clientsClaim":true,"skipWaiting":true,"cleanupOutdatedCaches":true,"offlineAnalytics":false,"preCaching":[{"revision":"hLr6SyY3BV6d","url":"/vtodo/?standalone=true"},{"revision":"hLr6SyY3BV6d","url":"/vtodo/?standalone=true"}],"runtimeCaching":[{"urlPattern":"/vtodo/_nuxt/","handler":"CacheFirst","method":"GET","strategyPlugins":[]},{"urlPattern":"/vtodo/","handler":"NetworkFirst","method":"GET","strategyPlugins":[]},{"urlPattern":"/vtodo/_nuxt/","handler":"CacheFirst","method":"GET","strategyPlugins":[]},{"urlPattern":"/vtodo/","handler":"NetworkFirst","method":"GET","strategyPlugins":[]}],"offlinePage":null,"pagesURLPattern":"/vtodo/","offlineStrategy":"NetworkFirst"}
 
 importScripts(...[options.workboxURL, ...options.importScripts])
 
@@ -49,6 +49,7 @@ function precacheAssets(workbox, options) {
     workbox.precaching.precacheAndRoute(options.preCaching, options.cacheOptions)
   }
 }
+
 
 function runtimeCaching(workbox, options) {
   for (const entry of options.runtimeCaching) {
