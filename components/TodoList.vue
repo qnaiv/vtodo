@@ -68,4 +68,9 @@ export default class TodoList extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.v-list-item__title,
+.v-list-item__subtitle {
+  white-space: pre-wrap;
+}
+</style>
