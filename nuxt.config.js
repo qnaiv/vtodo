@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   router: {
-    base: '/vtodo/',
+    base: '/nekotodo/',
   },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -15,8 +15,8 @@ export default {
     htmlAttrs: {
       lang: 'ja',
     },
-    titleTemplate: '%s - vtodo',
-    title: 'vtodo',
+    titleTemplate: '%s - nekotodo',
+    title: 'nekotodo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

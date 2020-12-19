@@ -1,5 +1,8 @@
 <template>
   <v-app dark>
+    <v-app-bar color="primary" dense dark>
+      <v-toolbar-title>nekotodo</v-toolbar-title>
+    </v-app-bar>
     <v-main>
       <v-container fluid>
         <nuxt />
