@@ -9,6 +9,12 @@
     <v-row>
       <v-col v-for="cat in cats" :key="cat.src" cols="6" sm="6" md="3">
         <img :src="cat.src" />
+        <v-rating
+          v-model="cat.rarity"
+          background-color="grey lighten-4"
+          color="amber accent-4"
+          readonly
+        ></v-rating>
       </v-col>
     </v-row>
   </v-card>
@@ -27,7 +33,7 @@ export default class CatGallery extends Vue {
     this.cats = this.$CatRepository.getCats().map((cat) => {
       return {
         src: cat.url,
-        msrc: cat.url,
+        rarity: cat.rarity,
       }
     })
   }

@@ -1,10 +1,13 @@
 <template>
   <v-app dark>
-    <v-app-bar color="primary" dense dark>
+     <v-app-bar
+      absolute
+      dense
+    >
       <v-toolbar-title>nekotodo</v-toolbar-title>
     </v-app-bar>
     <v-main>
-      <v-container fluid>
+      <v-container fluid class="mt-11">
         <nuxt />
       </v-container>
     </v-main>
