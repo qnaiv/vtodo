@@ -7,7 +7,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col v-for="cat in cats" :key="cat.src" cols="6" sm="6" md="3">
+      <v-col v-for="cat in cats" :key="cat.src" cols="12" sm="6" md="3">
         <img :src="cat.src" />
         <v-rating
           v-model="cat.rarity"
