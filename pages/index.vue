@@ -1,21 +1,24 @@
 <template>
   <v-row>
-    <v-col cols="12" sm="12" md="4">
-      <TodoList
-        :title="'Todos'"
-        :todos="newTodos"
-        :on-delete-all="clearNewTodos"
-        :on-click-todo="done"
-        :empty-message="'TODOを登録してください。'"
-      />
-    </v-col>
-    <v-col cols="12" sm="12" md="4">
-      <TodoList
-        :title="'Done'"
-        :todos="doneTodos"
-        :on-delete-all="clearDoneTodos"
-        :empty-message="'完了したTODOはありません。'"
-      />
+    <v-col cols="12" sm="12" md="8">
+      <v-row>
+        <v-col cols="12" class="pt-0">
+          <TodoList
+            :title="'Todos'"
+            :todos="newTodos"
+            :on-click-todo="done"
+            :empty-message="'TODOを登録してください。'"
+          />
+        </v-col>
+        <v-col cols="12" class="pb-0">
+          <TodoList
+            :title="'Done'"
+            :todos="doneTodos"
+            :on-delete-all="clearDoneTodos"
+            :empty-message="'完了したTODOはありません。'"
+          />
+        </v-col>
+      </v-row>
     </v-col>
     <v-col cols="12" sm="12" md="4">
       <v-card flat class="cat-container">

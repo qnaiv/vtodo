@@ -29,12 +29,14 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
+    <div v-if="onDeleteAll">
     <v-divider class="mx-4"></v-divider>
     <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text @click="onDeleteAll()">
+      <v-btn color="deep-purple lighten-2" text v-if="onDeleteAll" @click="onDeleteAll()">
         Delete all
       </v-btn>
     </v-card-actions>
+    </div>
   </v-card>
 </template>
 
