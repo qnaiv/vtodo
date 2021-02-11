@@ -4,7 +4,7 @@
       <ingredient-item
         :ingredient="ing"
         :on-delete="deleteIngredient"
-        :on-toggle-amount="changeAmountOfIngredient"
+        :on-update="updateIngredient"
       />
     </v-col>
     <SpeechRecognitionButton :onresult="recOnResult" />
@@ -37,8 +37,7 @@ export default class IngredientsManagement extends Vue {
     this.$IngredientRepository.setIngredients(this.ingredients)
   }
 
-  changeAmountOfIngredient(ingredient: Ingredient): void {
-    ingredient.toggleAmount()
+  updateIngredient(ingredient: Ingredient): void {
     this.ingredients = this.$IngredientRepository.updateIngredient(ingredient)
   }
 
