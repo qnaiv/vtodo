@@ -5,6 +5,7 @@
       fab
       bottom
       right
+      class="mb-12"
       :color="recButtonColor"
       @click="recognizeVoice"
     >
