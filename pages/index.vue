@@ -25,7 +25,7 @@
         <v-subheader>Latest ねこ</v-subheader>
         <LatestCat ref="cat" class="px-5 pb-5" />
         <v-card-actions>
-          <v-btn color="deep-purple lighten-2" text to="CatGallery">
+          <v-btn color="deep-purple lighten-2" text to="neko">
             集めたねこを見る
           </v-btn>
         </v-card-actions>

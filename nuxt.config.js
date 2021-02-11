@@ -15,7 +15,7 @@ export default {
     htmlAttrs: {
       lang: 'ja',
     },
-    titleTemplate: '%s - nekotodo',
+    titleTemplate: '%s',
     title: 'nekotodo',
     meta: [
       { charset: 'utf-8' },

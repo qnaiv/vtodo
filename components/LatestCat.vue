@@ -8,12 +8,12 @@
         <v-card-text>
           <img :src="latestCat.url" class="cat-dialog-image" />
           <span>{{ latestCat.captureAt | moment }}</span>
-            <v-rating
-              v-model="latestCat.rarity"
-              background-color="grey lighten-4"
-              color="amber accent-4"
-              readonly
-            ></v-rating>
+          <v-rating
+            v-model="latestCat.rarity"
+            background-color="grey lighten-4"
+            color="amber accent-4"
+            readonly
+          ></v-rating>
         </v-card-text>
         <v-card-actions>
           <v-spacer />

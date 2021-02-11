@@ -1,16 +1,31 @@
 <template>
   <v-app dark>
-     <v-app-bar
-      absolute
-      dense
-    >
-      <v-toolbar-title>nekotodo</v-toolbar-title>
-    </v-app-bar>
-    <v-main>
-      <v-container fluid class="mt-11">
+    <v-main class="mb-12">
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-main>
+    <v-app-bar id="app-menu" fixed dense bottom>
+      <nuxt-link to="/">
+        <v-btn icon color="blue darken-2">
+          <v-icon>mdi-text-box-check</v-icon>
+        </v-btn>
+      </nuxt-link>
+      <nuxt-link to="ingredients">
+        <v-btn icon color="green darken-2">
+          <v-icon>mdi-food</v-icon>
+        </v-btn>
+      </nuxt-link>
+      <nuxt-link to="neko">
+        <v-btn icon color="orange darken-2">
+          <v-icon>mdi-cat</v-icon>
+        </v-btn>
+      </nuxt-link>
+      <v-spacer></v-spacer>
+      <v-toolbar-title>
+        <nuxt-link to="/" class="orange--text"> nekotodo </nuxt-link>
+      </v-toolbar-title>
+    </v-app-bar>
   </v-app>
 </template>
 
@@ -34,8 +49,11 @@ export default class Default extends Vue {
 }
 </script>
 
-<style>
+<style scoped>
+#app-menu a {
+  text-decoration: none;
+}
 .v-application {
-  background-color: #232946 !important;
+  background-color: #e2b078 !important;
 }
 </style>

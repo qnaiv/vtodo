@@ -9,7 +9,7 @@
       >
         <v-list-item-content>
           <v-list-item-title
-            class="todo-title"
+            class="todo-title title"
             v-text="todo.title"
           ></v-list-item-title>
           <v-list-item-subtitle>
@@ -30,12 +30,17 @@
       </v-list-item>
     </v-list>
     <div v-if="onDeleteAll">
-    <v-divider class="mx-4"></v-divider>
-    <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text v-if="onDeleteAll" @click="onDeleteAll()">
-        Delete all
-      </v-btn>
-    </v-card-actions>
+      <v-divider class="mx-4"></v-divider>
+      <v-card-actions>
+        <v-btn
+          v-if="onDeleteAll"
+          color="deep-purple lighten-2"
+          text
+          @click="onDeleteAll()"
+        >
+          Delete all
+        </v-btn>
+      </v-card-actions>
     </div>
   </v-card>
 </template>

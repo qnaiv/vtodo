@@ -10,8 +10,6 @@ export class TodoRepository {
   }
 
   isEmpty(): boolean {
-    console.log(localStorage.todos)
-
     if (
       localStorage.todos === undefined ||
       localStorage.todos === null ||
