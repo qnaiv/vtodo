@@ -29,11 +29,12 @@
     "types": [
       "@types/node",
       "@nuxt/types"
-    ]
+    ],
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules",
     ".nuxt",
     "dist"
-  ]
+  ],
 }

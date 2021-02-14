@@ -7,6 +7,7 @@
 		"octref.vetur",
 		"dariofuzinato.vue-peek",
 		"antsteyer.vue-property-decorator-snippets",
-		"tabnine.tabnine-vscode"
+		"tabnine.tabnine-vscode",
+		"ponicode.ponicode"
 	]
 }

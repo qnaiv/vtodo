@@ -1,18 +1,26 @@
 <template>
   <v-card flats>
-    <v-card-text>
-      <p class="display-1 text--primary">
+    <v-card-text class="pb-0">
+      <p class="headline text--primary">
         {{ ingredient.name }}
       </p>
-      <v-progress-linear
-        :color="amountOfIngredient.color"
-        height="10"
-        :value="amountOfIngredient.value"
-        :striped="amountOfIngredient.striped"
-        @click="toggleAmount"
-      ></v-progress-linear>
+      <v-rating
+        v-model="ingredient.amount"
+        clearable
+        class="justify-center"
+        @input="updateIngredient()"
+      >
+        <template v-slot:item="props">
+          <v-icon
+            :color="props.isFilled ? amountColor : 'grey lighten-2'"
+            @click="props.click"
+          >
+            mdi-cube-outline
+          </v-icon>
+        </template>
+      </v-rating>
     </v-card-text>
-    <v-card-actions>
+    <v-card-actions class="pt-0">
       <v-dialog
         ref="dialog"
         v-model="modal"
@@ -34,7 +42,11 @@
         <v-date-picker v-model="ingredient.expirationDate" scrollable>
           <v-spacer></v-spacer>
           <v-btn text color="primary" @click="modal = false"> Cancel </v-btn>
-          <v-btn text color="primary" @click="test(ingredient.expirationDate)">
+          <v-btn
+            text
+            color="primary"
+            @click="saveDialog(ingredient.expirationDate)"
+          >
             OK
           </v-btn>
         </v-date-picker>
@@ -49,7 +61,6 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { AmountOfIngredient } from '~/entities/AmountOfIngredient'
 import { Ingredient } from '~/entities/Ingredient'
 
 @Component
@@ -77,37 +88,31 @@ export default class IngredientItem extends Vue {
     return date < today
   }
 
-  get amountOfIngredient() {
-    let color = 'green'
-    let value = 100
-    let striped = false
-
-    if (this.ingredient.amount === AmountOfIngredient.MID) {
-      color = 'yellow darken-4'
-      value = 50
-    } else if (this.ingredient.amount === AmountOfIngredient.LOW) {
-      color = 'deep-orange darken-4'
-      value = 20
-    } else if (this.ingredient.amount === AmountOfIngredient.EMPTY) {
-      color = 'grey'
-      value = 100
-      striped = true
-    }
-
-    return {
-      color,
-      value,
-      striped,
+  get amountColor() {
+    if (this.ingredient.amount >= 5) {
+      return 'green'
+    } else if (this.ingredient.amount === 4) {
+      return 'light-green'
+    } else if (this.ingredient.amount === 3) {
+      return 'yellow darken-2'
+    } else if (this.ingredient.amount === 2) {
+      return 'deep-orange'
+    } else if (this.ingredient.amount === 1) {
+      return 'deep-orange darken-4'
+    } else {
+      return 'grey'
     }
   }
 
-  toggleAmount() {
-    if (this.onUpdate == null) {
-      return
-    }
-    this.ingredient.toggleAmount()
-    this.onUpdate(this.ingredient)
-  }
+  // toggleAmount() {
+  //   if (this.onUpdate == null) {
+  //     return
+  //   }
+  //   this.ingredient.toggleAmount()
+  //   this.onUpdate(this.ingredient)
+  // }
+
+  updateAmount() {}
 
   deleteIngredient() {
     if (this.onDelete == null) {
@@ -116,12 +121,16 @@ export default class IngredientItem extends Vue {
     this.onDelete(this.ingredient.id)
   }
 
-  test(date: any) {
-    this.refs.dialog.save(date)
+  updateIngredient() {
     if (this.onUpdate == null) {
       return
     }
     this.onUpdate(this.ingredient)
+  }
+
+  saveDialog(date: any) {
+    this.refs.dialog.save(date)
+    this.updateIngredient()
   }
 }
 </script>

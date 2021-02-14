@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid'
-import { AmountOfIngredient } from './AmountOfIngredient'
 
 /**
  * 食材
@@ -8,15 +7,16 @@ export class Ingredient {
   constructor(arg: {
     id?: string
     name: string
-    amount?: AmountOfIngredient
+    amount?: number
     expirationDate?: string | null
-    created?: Date
+    createdAt?: Date
   }) {
     this.id = arg.id ?? uuidv4()
     this.name = arg.name ?? '不明な食材'
-    this.amount = arg.amount ?? AmountOfIngredient.FULL
+    this.amount = arg.amount ?? 5
     this.expirationDate = arg.expirationDate ? arg.expirationDate : ''
-    this.createdAt = arg.created != null ? new Date(arg.created) : new Date()
+    this.createdAt =
+      arg.createdAt != null ? new Date(arg.createdAt) : new Date()
   }
 
   // 食材ID
@@ -24,7 +24,7 @@ export class Ingredient {
   // 食材名
   name: string
   // 残量
-  amount: AmountOfIngredient
+  amount: number
   // 賞味期限(YYYY/MM/DD)
   expirationDate: string
 
@@ -36,11 +36,11 @@ export class Ingredient {
    * 実行するたびに残量が減っていく。現在の残量がEMPTYの場合、FULLに戻す。
    * @returns
    */
-  toggleAmount(): void {
-    if (this.amount === AmountOfIngredient.EMPTY) {
-      this.amount = AmountOfIngredient.FULL
-      return
-    }
-    this.amount = this.amount + 1
-  }
+  // toggleAmount(): void {
+  //   if (this.amount === AmountOfIngredient.EMPTY) {
+  //     this.amount = AmountOfIngredient.FULL
+  //     return
+  //   }
+  //   this.amount = this.amount + 1
+  // }
 }

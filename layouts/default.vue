@@ -5,27 +5,20 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-app-bar id="app-menu" fixed dense bottom>
-      <nuxt-link to="/">
-        <v-btn icon color="blue darken-2">
-          <v-icon>mdi-text-box-check</v-icon>
-        </v-btn>
-      </nuxt-link>
-      <nuxt-link to="ingredients">
-        <v-btn icon color="green darken-2">
-          <v-icon>mdi-food</v-icon>
-        </v-btn>
-      </nuxt-link>
-      <nuxt-link to="neko">
-        <v-btn icon color="orange darken-2">
-          <v-icon>mdi-cat</v-icon>
-        </v-btn>
-      </nuxt-link>
-      <v-spacer></v-spacer>
-      <v-toolbar-title>
-        <nuxt-link to="/" class="orange--text"> nekotodo </nuxt-link>
-      </v-toolbar-title>
-    </v-app-bar>
+    <v-bottom-navigation color="teal" grow fixed>
+      <v-btn to="/">
+        <span> Todo </span>
+        <v-icon>mdi-text-box-check</v-icon>
+      </v-btn>
+      <v-btn to="ingredients">
+        <span>食材</span>
+        <v-icon>mdi-food</v-icon>
+      </v-btn>
+      <v-btn to="neko">
+        <span>neko</span>
+        <v-icon>mdi-cat</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
